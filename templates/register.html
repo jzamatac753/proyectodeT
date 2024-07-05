@@ -1,0 +1,43 @@
+{% extends './base.html' %}
+
+
+{% block title %}Registro de Usuario{% endblock %}
+
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+
+{% block body %}
+<form class="form-signin" action="/register_user" method="POST">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <br />
+            {% for message in messages %}
+            <div class="alert alert-primary alert-dismissible" role="alert">
+                <strong>{{ message }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <h1 class="h3 mb-3 fw-normal">Registro</h1>
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <div class="form-floating">
+        <input type="text" class="form-control" id="nombre_usuario" name="nombre_usuario" placeholder="Nombre usuario">
+        <label for="nombre_usuario">Nombre de usuario</label>
+    </div>
+    <div class="form-floating mt-2">
+        <input type="email" class="form-control" name="correo_electronico" placeholder="Correo Electronico">
+        <label for="correo_electronico">Correo electronico</label>
+    </div>
+    <div class="form-floating mt-2">
+        <input type="password" class="form-control" name="contrasenha" placeholder="Contraseña">
+        <label for="contrasenha">Contraseña</label>
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Registrar</button>
+    <a href="{{url_for('login')}}" class="w-100 btn btn-lg btn-secondary mt-2">Atrás</a>
+</form>
+{% endblock %}

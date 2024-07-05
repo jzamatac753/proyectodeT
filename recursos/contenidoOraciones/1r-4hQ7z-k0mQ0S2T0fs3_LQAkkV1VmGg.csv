@@ -1,0 +1,53 @@
+N°,oraciones
+1,Página 1 de 27 Pruebas de Software Página 2 de 27 ¿Por qué hacer pruebas de software?
+2,• Determina el buen funcionamiento del aplicativo • Ayuda a determinar la calidad del producto •
+3,Constata
+4,que
+5,el producto construido cumple con el propósito
+6,"• Actividad empírica que ayuda a detectar defectos Página 3 de 27 Definición • “El proceso que consiste en todas las actividades del ciclo de vida, tanto estáticas como dinámicas relacionadas con la planificación, preparación y evaluación de productos software y productos relacionados con el trabajo para determinar que cumplen los requisitos especificados, para demostrar que son aptos para el propósito y para detectar defectos” ISTQB (International Software Testing Qualifications Board) Página 4 de 27 Términos • Error: es provocado por una acción humana al realizar una interpretación • Defecto: es un error de implementación: x+y>m • Fallo: se manifiesta en la ejecución de un programa debido a defectos en la implementación Página 5 de 27 “"
+7,Una persona puede cometer un error que a su vez puede producir un defecto en el código de programa o en un documento.
+8,"Si se ejecuta un defecto en el código, el sistema puede no hacer lo que debiera (o hacer algo que no debiera), lo que provocaría un fallo."
+9,"Alguno defectos de software pueden dar lugar a fallos, pero no todos los defectos lo hacen” ISTQB (International Software Testing Qualifications Board) Página 6 de 27 Estándares • Pruebas • 29119 • Calidad • 9000 • 9001 • 25000: Eficiencia, compatibilidad, usabilidad, fiabilidad, seguridad, mantenibilidad, portabilidad El 80% de los fallos de un software es generado por un 20% del código Página 7 de 27 Tipos de prueba 1."
+10,Pruebas funcionales 2. Pruebas no funcionales 3.
+11,"Pruebas estructurales Página 8 de 27 Pruebas funcionales • Características: idóneo, exacto, interoperable y seguro • Características de la funcionalidad: 1."
+12,Completitud: grado en que las funciones cubren todas las acciones y objetivos 2.
+13,Corrección funcional: capacidad de las funciones en obtener los resultados correctos (precisión) 3.
+14,Pertenencia funcional: capacidad del producto de software para proporcionar un conjunto apropiado de funciones para tareas y objetivos de usuario especificados.
+15,• Asociadas a las Pruebas de caja negra Página 9 de 27 Pruebas no funcionales • Comportamiento externo del software • Características no funcionales en las pruebas: 1.
+16,"Pruebas de carga: miden el comportamiento del sistema al aumentar su carga (nro de peticiones, nro de usuarios, etc) 2."
+17,Pruebas de rendimiento: se mide la velocidad del procesamiento y los tiempos de respuesta 3.
+18,Pruebas de volumen: mide la capacidad de procesamiento grandes volúmenes de datos 4.
+19,Pruebas de esfuerzo: se mide el comportamiento ante la sobrecarga del sistema.
+20,Se analiza también la capacidad de recuperación Página 10 de 27 5.
+21,"Pruebas de seguridad: accesos no autorizados, ataques, transferencias de datos 6."
+22,"Pruebas de estabilidad, robustez: mediciones de respuesta a fallos en el funcionamiento 7."
+23,"Pruebas de compatibilidad: funcionamiento en diferentes plataformas, SO, dispositivos 8."
+24,"Pruebas de usabilidad: miden la facilidad de uso, satisfacción Página 11 de 27 Pruebas estructurales • Miden todas las pruebas evaluando el tipo de estructura •"
+25,Asociada a las Pruebas de caja blanca Página 12 de 27 Técnicas para las pruebas • Tipos 1.
+26,"Estáticas: Analizar, revisar los artefactos del sistema (detección temprana de defectos) A."
+27,Revisión de códgo B. Análisis Estático C.
+28,Inspección de documentos D. Walkthroughs
+29,Página 13 de 27 Técnicas para las pruebas 2.
+30,Dinámicas: realizadas con la ejecución del sistema/aplicación: A.
+31,Técnica de caja blanca • Pruebas de unidad • Pruebas de integración • Pruebas de sistema • Pruebas de aceptación • Pruebas de rendimiento
+32,Página 14 de 27 Técnicas para las pruebas a.
+33,Ruta básica (Grafos de flujo) Página 15 de 27 Página 16 de 27 Técnicas para las pruebas b. Ciclos • Simples • Concatenados • Anidados • No estructurados Página 17 de 27 • Simples Página 18 de 27 • Concatenados Página 19 de 27 • Anidados Página 20 de 27 •
+34,No estructurados
+35,Página 21 de 27
+36,Técnicas para las pruebas c.
+37,Condiciones B.
+38,Técnica de caja negra (pruebas de comportamiento) • Partición de equivalencia • Análisis del valor límite • Pruebas de tabla de decisión • Pruebas de transición de estado • Pruebas de caso de uso Página 22 de 27 Técnicas para las pruebas 3.
+39,Con base en la experiencia: a. Análisis de riesgos b. Pruebas exploratorias Página 23 de 27 Estrategias de pruebas 1.
+40,Pruebas por niveles a. Verificación a. Pruebas unitarias b. Pruebas de integración I. Descendente II. Ascendente III.
+41,Ad-hoc c.
+42,Pruebas del sistema 2.
+43,Pruebas de validación a. Aceptación del usuario b. Alfa c. Beta d.
+44,Operativas
+45,3.
+46,Pruebas de escenario 4. Pruebas de regresión 5.
+47,Pruebas de humo
+48,6.
+49,Pruebas de usabilidad
+50,Página 24 de 27 Plan de Pruebas • Introducción • Elementos de la prueba • Características a probar • Método de prueba • Criterios de entrada y de salida • Entregables • Tareas / hitos • Cronograma • Responsabilidades • Riesgos
+51,"Página 25 de 27 Normas • ISO/IEC/IEEE 29119 Software Testing Standard • ISO/IEC/IEEE 25000 System and Software Quality Requirements and Evaluation • ISO/IEC 9241 Usabilidad y ergonomía para productos y servicios en tecnología, tanto en software como en hardware."
+52,"• ISTQB (International Software Testing Qualification Board) Página 26 de 27 Herramientas • Análisis estático: SonarQube, Checkstyle • Funcionales: Selenimun(web) • Carga: Jmeter, LoadView • Rendimiento: Jmeter • Seguridad: BurpSuite(web), Metasplit • Compatibilidad: Xray • Unitarias: Junit • Usabilidad: Hotjar, CrazyEgg • Integracion: SoapUI, Postman Página 27 de 27 Métricas de evaluación 1. Métricas de complejidad 2. Métricas de calidad 3. Métricas de eficiencia 4. Métricas de mantenibilidad 5. Métricas de seguridad"

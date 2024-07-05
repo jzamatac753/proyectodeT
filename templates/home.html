@@ -1,0 +1,182 @@
+{% extends './base_home.html' %}
+
+{% block title %}home{% endblock %}
+
+{% block customCSS %}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+  <form action="">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <div class="row-md text-end">
+      <div class="col">
+        <select class="form-select" aria-label="Seleccionar curso virtual">
+          <option value="1">Derecho I</option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-outline-primary">Actualizar</button>
+      <a href="{{url_for('addContent')}}" class="btn btn-primary">Cargar</a>  
+    </div>
+  </form>
+</div>
+
+<div class="container accordion" id="accordionPanelsStayOpenExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+            Palabras claves simples
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+        <div class="accordion-body">
+
+          <div class="container">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Palabra clave simple</th>
+                  <!-- <th scope="col">Relevancia</th> -->
+                  <!-- <th scope="col">Dependencia</th> -->
+                  <th scope="col">Grado de dificultad</th>
+                  <th scope="col">Rating</th>
+                  <th scope="col">Total de veces</th>
+                  <th scope="col">Definición</th>
+                  <th scope="col">Editar</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                {% for d in data_simp %}
+                  <tr>
+                    <th scope="row">{{d.identificador}}</th>
+                    <td>{{d.palabra_clave_simple}}</td>
+                    <td>{{d.grado_dificultad}}</td>
+                    <td>{{d.rating}}</td>
+                    <td>{{d.total_veces}}</td>
+                    <td>{{d.definicion}}</td>
+                    <td><button class="btn btn-primary btn-sm" id="btn-edit{{d.identificador}}" data-bs-toggle="modal" data-bs-target="#modal{{d.identificador}}">Editar</button></td>
+                  </tr>
+          
+                  <!-- modal -->
+          
+                  <div class="modal fade" id="modal{{d.identificador}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">{{d.palabra_clave_simple}}</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <form action="/edit/{{d.identificador}}" method="POST">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          
+                            <label>Palabra clave simple</label>
+                            <input type="text" class="form-control mb-3" name="palabra_clave" value="{{d.palabra_clave_simple}}" disabled>
+                            <label>Grado de dificultad</label>
+                            <input type="text" class="form-control mb-3" name="grado_dificultad" value="{{d.grado_dificultad}}">
+                            <label>Rating</label>
+                            <input type="text" class="form-control mb-3" name="rating" value="{{d.rating}}">
+                            <label>Total de veces</label>
+                            <input type="text" class="form-control mb-3" name="total_veces" value="{{d.total_veces}}" disabled>
+                            <label>Definición</label>
+                            <input type="text" class="form-control mb-3" name="definicion" value="{{d.definicion}}">
+                            
+                            <div class="modal-footer">
+                              <button type="submit" class="btn btn-primary">Confirmación de cambios</button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>    
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>          
+
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+            Palabras claves compuestas
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseTwo" class="accordion-collapse" aria-labelledby="panelsStayOpen-headingTwo">
+        <div class="accordion-body">
+
+          <div class="container">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Palabra clave compuesta</th>
+                  <!-- <th scope="col">Relevancia</th> -->
+                  <!-- <th scope="col">Dependencia</th> -->
+                  <th scope="col">Grado de dificultad</th>
+                  <th scope="col">Rating</th>
+                  <th scope="col">Total de veces</th>
+                  <th scope="col">Editar</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                {% for d in data_comp %}
+                  <tr>
+                    <th scope="row">{{d.identificador}}</th>
+                    <td>{{d.palabra_clave_compuesta}}</td>
+                    <td>{{d.grado_dificultad}}</td>
+                    <td>{{d.rating}}</td>
+                    <td>{{d.total_veces}}</td>
+                    <td>{{d.definicion}}</td>
+                    <td><button class="btn btn-primary btn-sm" id="btn-edit{{d.identificador}}" data-bs-toggle="modal" data-bs-target="#modal{{d.identificador}}">Editar</button></td>
+                  </tr>
+          
+                  <!-- modal -->
+          
+                  <div class="modal fade" id="modal{{d.identificador}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">{{d.palabra_clave_simple}}</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <form action="/edit/{{d.identificador}}" method="POST">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          
+                            <label>Palabra clave compuesta</label>
+                            <input type="text" class="form-control mb-3" name="palabra_clave" value="{{d.palabra_clave_simple}}" disabled>
+                            <label>Grado de dificultad</label>
+                            <input type="text" class="form-control mb-3" name="grado_dificultad" value="{{d.grado_dificultad}}">
+                            <label>Rating</label>
+                            <input type="text" class="form-control mb-3" name="rating" value="{{d.rating}}">
+                            <label>Total de veces</label>
+                            <input type="text" class="form-control mb-3" name="total_veces" value="{{d.total_veces}}" disabled>
+                            <label>Definición</label>
+                            <input type="text" class="form-control mb-3" name="definicion" value="{{d.definicion}}">
+                            
+                            <div class="modal-footer">
+                              <button type="submit" class="btn btn-primary">Confirmación de cambios</button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>    
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>          
+
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
